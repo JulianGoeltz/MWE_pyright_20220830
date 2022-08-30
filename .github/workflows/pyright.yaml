@@ -1,0 +1,46 @@
+name: pyright
+on:
+  push:
+jobs:
+  pyright_1_1_267:
+    name: pyright@1.1.267
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.10.6
+      - name: Install dependencies
+        run: |
+          python3 -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12'
+      - name: get pyright
+        run: npm install -g pyright@1.1.267
+      - name: pyright
+        run: pyright
+  pyright_1_1_268:
+    name: pyright@1.1.268
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.10.6
+      - name: Install dependencies
+        run: |
+          python3 -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12'
+      - name: get pyright
+        run: npm install -g pyright@1.1.268
+      - name: pyright
+        run: pyright
